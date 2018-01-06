@@ -1,0 +1,2 @@
+class ContractPlan < ApplicationRecord
+end

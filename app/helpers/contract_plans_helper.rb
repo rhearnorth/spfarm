@@ -1,0 +1,2 @@
+module ContractPlansHelper
+end

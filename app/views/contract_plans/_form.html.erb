@@ -1,0 +1,32 @@
+<%= form_with(model: contract_plan, local: true) do |form| %>
+  <% if contract_plan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(contract_plan.errors.count, "error") %> prohibited this contract_plan from being saved:</h2>
+
+      <ul>
+      <% contract_plan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :hash_rate %>
+    <%= form.text_field :hash_rate, id: :contract_plan_hash_rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :contract_plan_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contract_long %>
+    <%= form.number_field :contract_long, id: :contract_plan_contract_long %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

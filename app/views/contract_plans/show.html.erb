@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hash rate:</strong>
+  <%= @contract_plan.hash_rate %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @contract_plan.price %>
+</p>
+
+<p>
+  <strong>Contract long:</strong>
+  <%= @contract_plan.contract_long %>
+</p>
+
+<%= link_to 'Edit', edit_contract_plan_path(@contract_plan) %> |
+<%= link_to 'Back', contract_plans_path %>
