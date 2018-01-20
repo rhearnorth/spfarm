@@ -9,7 +9,15 @@
       </li>
     </ul>
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-      <%= link_to "Rails bootstrap", root_path, class: 'navbar-brand' %>
+      <% if user_signed_in? %>
+        <li>
+        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'navbar-brand') %>
+        </li>
+      <% else %>
+        <li>
+        <%= link_to('Login', new_user_session_path, class: 'navbar-brand')  %>
+        </li>
+      <% end %>
       <ul class="nav navbar-nav">
         <%= render 'layouts/navigation_links' %>
       </ul>
