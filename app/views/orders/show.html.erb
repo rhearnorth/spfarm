@@ -27,7 +27,7 @@
 
 <p>
   <strong>Slip image:</strong>
-  <%= @order.slip_image %>
+  <%= cl_image_tag @order.slip_image if @order.slip_image.present? %>
 </p>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
