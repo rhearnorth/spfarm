@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :confirm]
 
   # GET /orders
   # GET /orders.json
@@ -24,8 +24,7 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
+    @order = Order.new(create_order_params)
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -61,14 +60,40 @@ class OrdersController < ApplicationController
     end
   end
 
+  def confirm
+    if current_user.admin?
+      if @order.approve_by(current_user)
+        respond_to do |format|
+          format.html { redirect_to orders_url, notice: 'Order has been approved' }
+          format.json { render json: {}, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        format.html { redirect_to root, notice: 'Not Authorized' }
+        format.json { render json: {}, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def order_params
-      params.require(:order).permit(:hash_rate, :price, :user_id, :confirmed_at, :confirmed_by_user_id, :slip_image)
+    def update_order_params
+      params.require(:order).permit(:slip_image)
+    end
+
+    def create_order_params
+      params[:order] = { user_id: current_user.id }
+      params[:order].merge!(contract_plan.slice(:hash_rate, :price, :contract_long))
+      params.require(:order).permit(:hash_rate, :price, :user_id, :contract_long)
+    end
+
+    def contract_plan
+      return unless params[:contract_plan_id]
+      @contract_plan ||= ContractPlan.find(params[:contract_plan_id])
     end
 end

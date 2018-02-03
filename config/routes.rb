@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :contract_plans do
-    post :buy
+  resources :orders do
+    member do
+      post :confirm
+    end
   end
+  resources :contract_plans
   devise_for :users
   resources :users
 
