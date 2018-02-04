@@ -1,48 +1,48 @@
-Spfarm
+SP Farm
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
-
-Rails Composer is supported by developers who purchase our RailsApps tutorials.
-
-Problems? Issues?
+Setup environment list
 -----------
 
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
+```
+# HomeBrew 
+https://docs.brew.sh/Installation.html
 
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
+# Postgres
+brew install postgresql 
 
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
+# Git 
+brew install git
 
-Ruby on Rails
--------------
+# Ruby/Rails/Rbenv/Ruby-Build 
+brew install rails rbenv ruby-build
 
-This application requires:
+# Heroku (For deployment)
+brew install heroku/brew/heroku
+```
 
-- Ruby 2.3.1
-- Rails 5.1.4
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
-Getting Started
----------------
+Setup project
+-----------
+```
+# setup .env (Copy .env.example)
+cp .env.example .env
+```
 
-Documentation and Support
--------------------------
 
-Issues
--------------
+```
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed 
+```
 
-Similar Projects
-----------------
-
-Contributing
-------------
-
-Credits
--------
-
-License
--------
+Run project
+-----------
+```
+# start Rails server 
+rails s
+```
+Check at browser: 
+[localhost:3000](localhost:3000)
