@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= form.label :hash_rate %>
-    <%= form.text_field :hash_rate, id: :contract_plan_hash_rate %>
+    <%= form.text_field :hash_rate, id: :contract_plan_hash_rate, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :contract_plan_price %>
+    <%= form.text_field :price, id: :contract_plan_price, :class => "form-control" %>
   </div>
 
   <div class="field">
     <%= form.label :contract_long %>
-    <%= form.number_field :contract_long, id: :contract_plan_contract_long %>
+    <%= form.number_field :contract_long, id: :contract_plan_contract_long, :class => "form-control" %>
   </div>
 
-  <div class="actions">
+  <div class="action">
     <%= form.submit %>
   </div>
 <% end %>
