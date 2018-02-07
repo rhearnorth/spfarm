@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Order <%= @order.id %></h1>
 <p>
   <strong>Hash rate:</strong>
   <%= @order.hash_rate %>
@@ -30,12 +31,17 @@
   <%= cl_image_tag @order.slip_image if @order.slip_image.present? %>
 </p>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
+<%= link_to 'Edit', edit_order_path(@order), :class=>"btn-highlight" %>
+<%= link_to 'Back', orders_path, :class=>"btn-normal" %>
+
 
 <% if current_user.admin? %>
-  <p>
+<div class="hr-divider mt-5 mb-3">
+  <h3 class="hr-divider-content hr-divider-heading">Administrator</h3>
+</div>
+<p>
     <strong>Confirm This order:</strong>
-    <%= link_to 'Confirm', confirm_order_path(@order), method: :post %>
+    <%= link_to 'Confirm', confirm_order_path(@order), method: :post, :class=>"btn-highlight btn-success" %>
   </p>
+  
 <% end %>

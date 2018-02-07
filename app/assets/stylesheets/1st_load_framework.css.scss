@@ -10,27 +10,34 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
-  }
+}
+
+  
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  text-align: center;
-}
-.form {
-  @extend .col-md-6;
-}
-.form-centered {
-  @extend .col-md-6;
-  text-align: center;
-}
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
+// .column {
+//   @extend .col-md-6;
+//   text-align: center;
+// }
+// .form {
+//   @extend .col-md-6;
+// }
+// .form-centered {
+//   @extend .col-md-6;
+//   text-align: center;
+// }
+// .submit {
+//   @extend .btn;
+//   @extend .btn-primary;
+//   @extend .btn-lg;
+// }
+
+// input[type="text"], input[type="number"] {
+//   @extend .form-control;
+// }
+
 
 // apply styles to HTML elements
 // to make views framework-neutral
@@ -62,6 +69,7 @@ section {
 .authform .right {
   float: right !important;
 }
+
 .authform .button {
   @extend .btn;
   @extend .btn-primary;
@@ -76,8 +84,54 @@ section {
 #error_explanation h2 {
   font-size: 16px;
 }
-.button-xs {
+// .button-xs {
+//   @extend .btn;
+//   @extend .btn-primary;
+//   @extend .btn-sm;
+// }
+
+
+h1, h2, h3, h4, h5, h6 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.table td {
+  vertical-align: middle !important;
+}
+
+.btn-normal {
+  @extend .btn;
+  @extend .btn-secondary;
+  font-size: inherit;
+}
+
+form input[type="text"], form input[type="number"] {
+  @extend .form-control;
+}
+
+.table .btn-normal {
+  @extend .btn-normal;
+  display: block;
+}
+
+.btn-highlight {
   @extend .btn;
   @extend .btn-primary;
-  @extend .btn-sm;
+}
+
+// a.btn {
+//   @extend .btn;
+//   @extend .btn-secondary;
+// }
+
+
+
+
+
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
