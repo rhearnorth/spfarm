@@ -1,35 +1,59 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Order <%= @order.id %></h1>
-<p>
-  <strong>Hash rate:</strong>
-  <%= @order.hash_rate %>
-</p>
+<h1>Order: <%= @order.id %></h1>
 
-<p>
-  <strong>Price:</strong>
-  <%= @order.price %>
-</p>
+<div class="hr-divider mt-5 mb-3">
+  <h3 class="hr-divider-content hr-divider-heading">Order Detail:</h3>
+</div>
+<div class="summary-group row">
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Hash rate</span>
+      <h3 class="statcard-number"><%= @order.hash_rate %></h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Price</span>
+      <h3 class="statcard-number"><%= @order.price %></h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">User</span>
+      <h3 class="statcard-number"><%= @order.user_id %></h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Slip image</span>
+      <div>
+        <%= cl_image_tag @order.slip_image if @order.slip_image.present? %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>User:</strong>
-  <%= @order.user_id %>
-</p>
 
-<p>
-  <strong>Confirmed at:</strong>
-  <%= @order.confirmed_at %>
-</p>
+<div class="hr-divider mt-5 mb-3">
+  <h3 class="hr-divider-content hr-divider-heading">Status</h3>
+</div>
 
-<p>
-  <strong>Confirmed by user:</strong>
-  <%= @order.confirmed_by_user_id %>
-</p>
+<div class="summary-group row">
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Confirmed at</span>
+      <h3 class="statcard-number"><%= @order.confirmed_at %></h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Confirmed by:</span>
+      <h3 class="statcard-number"><%= @order.confirmed_by_user_id %></h3>
+    </div>
+  </div> 
+</div>
 
-<p>
-  <strong>Slip image:</strong>
-  <%= cl_image_tag @order.slip_image if @order.slip_image.present? %>
-</p>
 
 <%= link_to 'Edit', edit_order_path(@order), :class=>"btn-highlight" %>
 <%= link_to 'Back', orders_path, :class=>"btn-normal" %>

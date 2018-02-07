@@ -136,14 +136,14 @@ form input[type="text"], form input[type="number"] {
   background-color: transparent;  
   border-color: #434857;
   padding: 1rem 1rem;
-  margin: 7px;
+  margin-bottom: 7px;
 }
 
-@media (min-width: 768px) {
-  .summary-group .box {
-    margin: 0px;
-  }
-}
+// @media (min-width: 768px) {
+//   .summary-group .box {
+//     margin-bottom: 0px;
+//   }
+// }
 
 
 
