@@ -92,8 +92,8 @@ section {
 
 
 h1, h2, h3, h4, h5, h6 {
-  padding-top: 1em;
-  padding-bottom: 1em;
+  // padding-top: 1em;
+  // padding-bottom: 1em;
 }
 
 .table td {
@@ -125,6 +125,26 @@ form input[type="text"], form input[type="number"] {
 //   @extend .btn-secondary;
 // }
 
+.summary-group {
+  margin: 20px 0;
+}
+
+.summary-group .box {
+  @extend .card;
+  // display: inline-block;
+  // width: 30%;
+  background-color: transparent;  
+  border-color: #434857;
+  padding: 1rem 1rem;
+  margin: 7px;
+}
+
+@media (min-width: 768px) {
+  .summary-group .box {
+    margin: 0px;
+  }
+}
+
 
 
 
@@ -135,3 +155,4 @@ input[type="submit"] {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
