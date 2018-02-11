@@ -91,9 +91,9 @@ section {
 // }
 
 
-h1, h2, h3, h4, h5, h6 {
+main > h1, main > h2, main > h3, h4, h5, h6 {
   // padding-top: 1em;
-  // padding-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 .table td {
@@ -108,6 +108,11 @@ h1, h2, h3, h4, h5, h6 {
 
 form input[type="text"], form input[type="number"] {
   @extend .form-control;
+}
+
+.new_user input[type="email"],.new_user input[type="password"] {
+  @extend .form-control;
+  width: 50%;
 }
 
 .table .btn-normal {
