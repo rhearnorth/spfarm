@@ -108,11 +108,24 @@ main > h1, main > h2, main > h3, h4, h5, h6 {
 
 form input[type="text"], form input[type="number"] {
   @extend .form-control;
+  width: 100%;
 }
 
 .new_user input[type="email"],.new_user input[type="password"] {
   @extend .form-control;
-  width: 50%;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  form input[type="text"], form input[type="number"] {
+    
+    width: 50%;
+  }
+  
+  .new_user input[type="email"],.new_user input[type="password"] {
+    
+    width: 50%;
+  }
 }
 
 .table .btn-normal {
