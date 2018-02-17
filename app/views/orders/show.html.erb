@@ -9,19 +9,19 @@
   <div class="col-12 col-md-4">
     <div class="statcard p-3 box">
       <span class="statcard-desc">Hash rate</span>
-      <h3 class="statcard-number"><%= @order.hash_rate %></h3>
+      <h3 class="statcard-number"><%= @order.hash_rate %> MH/s</h3>
     </div>
   </div>
   <div class="col-12 col-md-4">
     <div class="statcard p-3 box">
       <span class="statcard-desc">Price</span>
-      <h3 class="statcard-number"><%= @order.price %></h3>
+      <h3 class="statcard-number"><%= number_to_currency @order.price, unit: "THB" %></h3>
     </div>
   </div>
   <div class="col-12 col-md-4">
     <div class="statcard p-3 box">
-      <span class="statcard-desc">User</span>
-      <h3 class="statcard-number"><%= @order.user_id %></h3>
+      <span class="statcard-desc">Confirmed at</span>
+      <h3 class="statcard-number"><%= @order.confirmed_at.strftime('%c') %></h3>
     </div>
   </div>
   <div class="col-12 col-md-4">
@@ -34,38 +34,33 @@
   </div>
 </div>
 
-
-<div class="hr-divider mt-5 mb-3">
-  <h3 class="hr-divider-content hr-divider-heading">Status</h3>
-</div>
-
-<div class="summary-group row">
-  <div class="col-12 col-md-4">
-    <div class="statcard p-3 box">
-      <span class="statcard-desc">Confirmed at</span>
-      <h3 class="statcard-number"><%= @order.confirmed_at %></h3>
-    </div>
-  </div>
-  <div class="col-12 col-md-4">
-    <div class="statcard p-3 box">
-      <span class="statcard-desc">Confirmed by:</span>
-      <h3 class="statcard-number"><%= @order.confirmed_by_user_id %></h3>
-    </div>
-  </div> 
-</div>
-
-
-<%= link_to 'Edit', edit_order_path(@order), :class=>"btn-highlight" %>
 <%= link_to 'Back', orders_path, :class=>"btn-normal" %>
 
-
 <% if current_user.admin? %>
-<div class="hr-divider mt-5 mb-3">
-  <h3 class="hr-divider-content hr-divider-heading">Administrator</h3>
-</div>
-<p>
+  <div class="hr-divider mt-5 mb-3">
+    <h3 class="hr-divider-content hr-divider-heading">Status</h3>
+  </div>
+
+  <div class="summary-group row">
+    <div class="col-12 col-md-4">
+      <div class="statcard p-3 box">
+        <span class="statcard-desc">User</span>
+        <h3 class="statcard-number"><%= @order.user.email %></h3>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="statcard p-3 box">
+        <span class="statcard-desc">Confirmed by:</span>
+        <h3 class="statcard-number"><%= @order.confirmed_by_user.email %></h3>
+      </div>
+    </div> 
+  </div>
+  <%= link_to 'Edit', edit_order_path(@order), :class=>"btn-highlight" %>
+  <div class="hr-divider mt-5 mb-3">
+    <h3 class="hr-divider-content hr-divider-heading">Administrator</h3>
+  </div>
+  <p>
     <strong>Confirm This order:</strong>
     <%= link_to 'Confirm', confirm_order_path(@order), method: :post, :class=>"btn-highlight btn-success" %>
   </p>
-  
 <% end %>
