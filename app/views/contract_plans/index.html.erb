@@ -1,31 +1,34 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
 <h1>Contract Plans</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Hash rate</th>
-      <th>Price</th>
-      <th>Contract long</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @contract_plans.each do |contract_plan| %>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= contract_plan.hash_rate %></td>
-        <td><%= contract_plan.price %></td>
-        <td><%= contract_plan.contract_long %></td>
-        <td><%= link_to 'Show', contract_plan %></td>
-        <td><%= link_to 'Edit', edit_contract_plan_path(contract_plan) %></td>
-        <td><%= link_to 'Destroy', contract_plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="header">Hash rate</th>
+        <th class="header">Price</th>
+        <th class="header">Contract long</th>
+        <th class="header" colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @contract_plans.each do |contract_plan| %>
+        <tr>
+          <td><%= contract_plan.hash_rate %></td>
+          <td><%= contract_plan.price %></td>
+          <td><%= contract_plan.contract_long %></td>
+          <td><%= link_to 'Show', contract_plan, :class=>"btn-normal" %></td>
+          <td><%= link_to 'Edit', edit_contract_plan_path(contract_plan), :class=>"btn-normal" %></td>
+          <td><%= link_to 'Destroy', contract_plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn-normal" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Contract Plan', new_contract_plan_path %>
+<%= link_to 'New Contract Plan', new_contract_plan_path, :class=>"btn-highlight"%>
+

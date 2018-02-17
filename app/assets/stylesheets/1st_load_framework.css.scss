@@ -10,33 +10,40 @@ img {
 // override for the 'Home' navigation link
 .navbar-brand {
   font-size: inherit;
-  }
+}
+
+  
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
-.column {
-  @extend .col-md-6;
-  text-align: center;
-}
-.form {
-  @extend .col-md-6;
-}
-.form-centered {
-  @extend .col-md-6;
-  text-align: center;
-}
-.submit {
-  @extend .btn;
-  @extend .btn-primary;
-  @extend .btn-lg;
-}
+// .column {
+//   @extend .col-md-6;
+//   text-align: center;
+// }
+// .form {
+//   @extend .col-md-6;
+// }
+// .form-centered {
+//   @extend .col-md-6;
+//   text-align: center;
+// }
+// .submit {
+//   @extend .btn;
+//   @extend .btn-primary;
+//   @extend .btn-lg;
+// }
+
+// input[type="text"], input[type="number"] {
+//   @extend .form-control;
+// }
+
 
 // apply styles to HTML elements
 // to make views framework-neutral
 main {
   @extend .container;
-  margin-top: 30px; // accommodate the navbar
+  margin-top: 80px; // accommodate the navbar
 }
 
 section {
@@ -62,6 +69,7 @@ section {
 .authform .right {
   float: right !important;
 }
+
 .authform .button {
   @extend .btn;
   @extend .btn-primary;
@@ -76,8 +84,93 @@ section {
 #error_explanation h2 {
   font-size: 16px;
 }
-.button-xs {
+// .button-xs {
+//   @extend .btn;
+//   @extend .btn-primary;
+//   @extend .btn-sm;
+// }
+
+
+main > h1, main > h2, main > h3, h4, h5, h6 {
+  // padding-top: 1em;
+  margin-bottom: 1em;
+}
+
+.table td {
+  vertical-align: middle !important;
+}
+
+.btn-normal {
+  @extend .btn;
+  @extend .btn-secondary;
+  font-size: inherit;
+}
+
+form input[type="text"], form input[type="number"] {
+  @extend .form-control;
+  width: 100%;
+}
+
+.new_user input[type="email"],.new_user input[type="password"] {
+  @extend .form-control;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  form input[type="text"], form input[type="number"] {
+    
+    width: 50%;
+  }
+  
+  .new_user input[type="email"],.new_user input[type="password"] {
+    
+    width: 50%;
+  }
+}
+
+.table .btn-normal {
+  @extend .btn-normal;
+  display: block;
+}
+
+.btn-highlight {
   @extend .btn;
   @extend .btn-primary;
-  @extend .btn-sm;
 }
+
+// a.btn {
+//   @extend .btn;
+//   @extend .btn-secondary;
+// }
+
+.summary-group {
+  margin: 20px 0;
+}
+
+.summary-group .box {
+  @extend .card;
+  // display: inline-block;
+  // width: 30%;
+  background-color: transparent;  
+  border-color: #434857;
+  padding: 1rem 1rem;
+  margin-bottom: 7px;
+}
+
+// @media (min-width: 768px) {
+//   .summary-group .box {
+//     margin-bottom: 0px;
+//   }
+// }
+
+
+
+
+
+input[type="submit"] {
+  @extend .btn;
+  @extend .btn-primary;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+

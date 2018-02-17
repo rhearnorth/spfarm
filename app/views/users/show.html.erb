@@ -1,3 +1,15 @@
 <h3>User</h3>
-<p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+<div class="summary-group row">
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Name</span>
+      <h3 class="statcard-number"><%= @user.name if @user.name %></h3>
+    </div>
+  </div>
+  <div class="col-12 col-md-4">
+    <div class="statcard p-3 box">
+      <span class="statcard-desc">Email</span>
+      <h3 class="statcard-number"><%= @user.email if @user.email %></h3>
+    </div>
+  </div>
+</div>
