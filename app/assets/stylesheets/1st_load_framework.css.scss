@@ -44,6 +44,13 @@ img {
 main {
   @extend .container;
   margin-top: 80px; // accommodate the navbar
+  padding-left: 15;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-left: 80px;
+  }
 }
 
 section {
@@ -172,6 +179,17 @@ input[type="submit"] {
   @extend .btn-primary;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+
+
+.iconav {
+  margin-top: 0px !important;  
+}
+
+.iconav-brand {
+  padding-top:15px;
+  padding-bottom:15px;
 }
 
 
