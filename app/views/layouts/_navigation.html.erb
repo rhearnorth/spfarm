@@ -1,8 +1,71 @@
 <%# navigation styled for Bootstrap 4.0 %>
 <div class="container">
-  <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark app-navbar">
+
+  <nav class="iconav">
+    <a class="iconav-brand" href="../index.html">
+      <!--<span class="icon icon-leaf iconav-brand-icon"></span>-->
+      <span>SP</span>
+    </a>
+    <div class="iconav-slider">
+      <ul class="nav nav-pills iconav-nav flex-md-column">
+        <li class="nav-item">
+          <%= link_to root_path, :class => 'nav-link' do %>
+            <div class="nav-icon">
+              <i class="fas fa-home"></i>
+              <small class="iconav-nav-label d-md-none">Home</small>
+            </div>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to orders_path, :class => 'nav-link' do %>
+            <div class="nav-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <small class="iconav-nav-label d-md-none">Orders</small>
+          <% end %>
+        </li>
+        <li class="nav-item">
+          <%= link_to contract_plans_path, :class => 'nav-link' do %>
+            <div class="nav-icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <small class="iconav-nav-label d-md-none">Contract Plans</small>
+          <% end %>
+        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to destroy_user_session_path, method: :delete,  :class => 'nav-link' do %>
+              <div class="nav-icon">
+                <i class="fas fa-sign-out-alt"></i>
+              </div>
+              <small class="iconav-nav-label d-md-none">Log out</small>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to new_user_session_path, :class => 'nav-link' do  %>
+              <div class="nav-icon">
+                <i class="fas fa-sign-in-alt"></i>
+              </div>
+              <small class="iconav-nav-label d-md-none">Log in</small>
+            <% end %>
+          </li>
+        <% end %>
+        
+        <!--<li class="nav-item">
+          <a class="nav-link active" href="../icon-nav/index.html" title="Icon-nav" data-toggle="tooltip" data-placement="right" data-container="body">
+            <span class="icon icon-area-graph"></span>
+            <small class="iconav-nav-label d-md-none">Icon nav</small>
+          </a>
+        </li>-->
+        
+        
+      </ul>
+    </div>
+  </nav>
+
+  <!--<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark app-navbar">
       <a class="navbar-brand" href="../index.html">
-      <!--<span class="icon icon-leaf navbar-brand-icon"></span>-->
       SP Farming: Dashboard
     </a>
     <button class="navbar-toggler navbar-toggler-right d-md-none" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,19 +85,5 @@
         <% end %>
       </ul>
     </div>
-    <!--<div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
-      <% if user_signed_in? %>
-        <li>
-        <%= link_to('Logout', destroy_user_session_path, method: :delete, class: 'navbar-brand') %>
-        </li>
-      <% else %>
-        <li>
-        <%= link_to('Login', new_user_session_path, class: 'navbar-brand')  %>
-        </li>
-      <% end %>
-      <ul class="nav navbar-nav">
-        <%= render 'layouts/navigation_links' %>
-      </ul>
-    </div>-->
-  </nav>
+  </nav>-->
 </div>
