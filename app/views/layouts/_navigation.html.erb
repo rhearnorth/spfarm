@@ -9,15 +9,15 @@
     <div class="iconav-slider">
       <ul class="nav nav-pills iconav-nav flex-md-column">
         <li class="nav-item">
-          <%= link_to root_path, :class => 'nav-link' do %>
-            <div class="nav-icon">
+          <%= link_to root_path, title: "Home" , :data => { :toggle => 'tooltip', :placement => 'right', :container => 'body' },  :class => 'nav-link' do %>
+            <div class="nav-icon">  
               <i class="fas fa-home"></i>
-              <small class="iconav-nav-label d-md-none">Home</small>
             </div>
+            <small class="iconav-nav-label d-md-none">Home</small>
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to orders_path, :class => 'nav-link' do %>
+          <%= link_to orders_path, title: "Orders" , :data => { :toggle => 'tooltip', :placement => 'right', :container => 'body' }, :class => 'nav-link' do %>
             <div class="nav-icon">
               <i class="fas fa-briefcase"></i>
             </div>
@@ -25,7 +25,7 @@
           <% end %>
         </li>
         <li class="nav-item">
-          <%= link_to contract_plans_path, :class => 'nav-link' do %>
+          <%= link_to contract_plans_path, title: "Contract Plans" , :data => { :toggle => 'tooltip', :placement => 'right', :container => 'body' }, :class => 'nav-link' do %>
             <div class="nav-icon">
               <i class="fas fa-shopping-cart"></i>
             </div>
@@ -34,7 +34,7 @@
         </li>
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to destroy_user_session_path, method: :delete,  :class => 'nav-link' do %>
+            <%= link_to destroy_user_session_path, title: "Log out" , :data => { :toggle => 'tooltip', :placement => 'right', :container => 'body' }, method: :delete,  :class => 'nav-link' do %>
               <div class="nav-icon">
                 <i class="fas fa-sign-out-alt"></i>
               </div>
@@ -43,7 +43,7 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <%= link_to new_user_session_path, :class => 'nav-link' do  %>
+            <%= link_to new_user_session_path, title: "Log in" , :data => { :toggle => 'tooltip', :placement => 'right', :container => 'body' } , :class => 'nav-link' do  %>
               <div class="nav-icon">
                 <i class="fas fa-sign-in-alt"></i>
               </div>
@@ -53,7 +53,7 @@
         <% end %>
         
         <!--<li class="nav-item">
-          <a class="nav-link active" href="../icon-nav/index.html" title="Icon-nav" data-toggle="tooltip" data-placement="right" data-container="body">
+          <a class="nav-link active" href="../icon-nav/index.html" title: "Icon-nav" data-toggle="tooltip" data-placement="right" data-container="body">
             <span class="icon icon-area-graph"></span>
             <small class="iconav-nav-label d-md-none">Icon nav</small>
           </a>
