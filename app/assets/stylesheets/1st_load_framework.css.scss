@@ -38,6 +38,14 @@ img {
 
 // apply styles to HTML elements
 // to make views framework-neutral
+
+.container-header {
+  @extend .container;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100%;
+}
+
 main {
   @extend .container;
   margin-top: 80px; // accommodate the navbar
