@@ -10,7 +10,6 @@
       <th class="header">Contract Long (months)</th>
       <th class="header">User</th>
       <th class="header">Confirmed at</th>
-      <th class="header">Confirmed by user</th>
       <th class="header">Slip image</th>
       <th colspan="3" class="header"></th>
     </tr>
@@ -19,12 +18,11 @@
   <tbody>
     <% @orders.each do |order| %>
       <tr>
-        <td><%= order.hash_rate %></td>
-        <td><%= order.price %></td>
+        <td><%= order.hash_rate %> MH/s</td>
+        <td><%= number_to_currency @order.price, unit: "THB" %></td>
         <td><%= order.contract_long %></td>
         <td><%= order.user_id %></td>
-        <td><%= order.confirmed_at %></td>
-        <td><%= order.confirmed_by_user_id %></td>
+        <td><%= @order.confirmed_at.strftime('%c') %></td>
         <td><%= order.slip_image %></td>
         <td><%= link_to 'Show', order, :class=>"btn-normal"%></td>
         <td><%= link_to 'Edit', edit_order_path(order), :class=>"btn-normal" %></td>

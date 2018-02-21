@@ -4,7 +4,11 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    @orders = if current_user.admin?
+      Order.all
+    else
+      current_user.orders
+    end
   end
 
   # GET /orders/1
@@ -79,7 +83,11 @@ class OrdersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_order
-      @order = Order.find(params[:id])
+      @order = if current_user.admin?
+        Order.find(params[:id])
+      else
+        current_user.orders.find_by(params[:id])
+      end
     end
 
     def update_order_params
