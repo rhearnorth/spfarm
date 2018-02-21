@@ -12,8 +12,6 @@ img {
   font-size: inherit;
 }
 
-  
-
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create your own classes
 // to make views framework-neutral
@@ -38,12 +36,26 @@ img {
 //   @extend .form-control;
 // }
 
-
 // apply styles to HTML elements
 // to make views framework-neutral
+
+.container-header {
+  @extend .container;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100%;
+}
+
 main {
   @extend .container;
   margin-top: 80px; // accommodate the navbar
+  padding-left: 15;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding-left: 80px;
+  }
 }
 
 section {
@@ -90,8 +102,12 @@ section {
 //   @extend .btn-sm;
 // }
 
-
-main > h1, main > h2, main > h3, h4, h5, h6 {
+main > h1,
+main > h2,
+main > h3,
+h4,
+h5,
+h6 {
   // padding-top: 1em;
   margin-bottom: 1em;
 }
@@ -106,24 +122,26 @@ main > h1, main > h2, main > h3, h4, h5, h6 {
   font-size: inherit;
 }
 
-form input[type="text"], form input[type="number"] {
+form input[type="text"],
+form input[type="number"] {
   @extend .form-control;
   width: 100%;
 }
 
-.new_user input[type="email"],.new_user input[type="password"] {
+.new_user input[type="email"],
+.new_user input[type="password"] {
   @extend .form-control;
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  form input[type="text"], form input[type="number"] {
-    
+  form input[type="text"],
+  form input[type="number"] {
     width: 50%;
   }
-  
-  .new_user input[type="email"],.new_user input[type="password"] {
-    
+
+  .new_user input[type="email"],
+  .new_user input[type="password"] {
     width: 50%;
   }
 }
@@ -151,7 +169,7 @@ form input[type="text"], form input[type="number"] {
   @extend .card;
   // display: inline-block;
   // width: 30%;
-  background-color: transparent;  
+  background-color: transparent;
   border-color: #434857;
   padding: 1rem 1rem;
   margin-bottom: 7px;
@@ -163,10 +181,6 @@ form input[type="text"], form input[type="number"] {
 //   }
 // }
 
-
-
-
-
 input[type="submit"] {
   @extend .btn;
   @extend .btn-primary;
@@ -174,3 +188,32 @@ input[type="submit"] {
   margin-bottom: 10px;
 }
 
+.iconav {
+  margin-top: 0px !important;
+}
+
+.iconav-brand {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+  .iconav-brand .mobile {
+    display: none;
+  }
+}
+
+.nav-icon {
+  font-size: 1em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.nav-link:hover {
+  background-color: #007bff;
+}
+
+.iconav-nav-label {
+  margin-top: 3px;
+  text-align: center;
+}
