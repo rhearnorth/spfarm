@@ -1,6 +1,11 @@
 <!--<p id="notice"><%= notice %></p>-->
+<% if current_user.admin? %>
+  <%= link_to "Waiting for image slip orders", orders_path %>
+  <%= link_to "Waiting for approval_orders", orders_path(order_type: "waiting_approval")%>
+  <%= link_to "Approved orders", orders_path(order_type: "confirmed") %>
+<% end %>
 
-<h1>Orders</h1>
+<h1><%= @title %></h1>
 <div class="table-responsive">
 <table class="table">
   <thead>

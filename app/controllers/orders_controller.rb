@@ -7,14 +7,18 @@ class OrdersController < ApplicationController
     if current_user.admin?
       @order_type = params[:order_type]
       @orders = case @order_type
-      when "waiting_approval"
-        Order.waiting_approval_orders
-      when "confirmed"
-        Order.confirmed_orders
-      else
-        Order.bought_orders
-      end
+                when "waiting_approval"
+                  @title = "Waiting for approval orders"
+                  Order.waiting_approval_orders
+                when "confirmed"
+                  @title = "Approved orders"
+                  Order.confirmed_orders
+                else
+                  @title = "Waiting for money transfer"
+                  Order.bought_orders
+                end
     else
+      @title = "My orders"
       @orders = current_user.orders
     end
   end
