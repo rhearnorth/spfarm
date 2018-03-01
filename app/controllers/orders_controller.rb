@@ -4,10 +4,18 @@ class OrdersController < ApplicationController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = if current_user.admin?
-      Order.all
+    if current_user.admin?
+      @order_type = params[:order_type]
+      @orders = case @order_type
+      when "waiting_approval"
+        Order.waiting_approval_orders
+      when "confirmed"
+        Order.confirmed_orders
+      else
+        Order.bought_orders
+      end
     else
-      current_user.orders
+      @orders = current_user.orders
     end
   end
 
@@ -88,6 +96,7 @@ class OrdersController < ApplicationController
       else
         current_user.orders.find_by(params[:id])
       end
+      authorize @order
     end
 
     def update_order_params

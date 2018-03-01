@@ -1,5 +1,6 @@
 class ContractPlansController < ApplicationController
   before_action :set_contract_plan, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :index
 
   # GET /contract_plans
   # GET /contract_plans.json
@@ -65,6 +66,7 @@ class ContractPlansController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_contract_plan
       @contract_plan = ContractPlan.find(params[:id])
+      authorize @contract_plan
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
