@@ -1,0 +1,18 @@
+<div class="col-12 col-md-4">
+  <div class="statcard p-3 box">
+    <span class="statcard-desc">Hash rate</span>
+    <h3 class="statcard-number"><%= contract_plan.hash_rate %> MH/s</h3>
+    <span class="statcard-desc">Price</span>
+    <h3 class="statcard-number"><%= contract_plan.price %> THB</h3>
+    <span class="statcard-desc">Contract Long</span>
+    <h3 class="statcard-number"><%= contract_plan.contract_long
+     %> months</h3>
+    <br>
+    <%= link_to 'Show', contract_plan, :class=>"btn-normal" %>
+
+    <% if current_user.admin? %>
+      <%= link_to 'Edit', edit_contract_plan_path(contract_plan), :class=>"btn-normal" %>
+      <%= link_to 'Destroy', contract_plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn-normal" %>
+    <% end %>
+  </div>
+</div>
