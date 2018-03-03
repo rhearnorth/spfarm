@@ -20,8 +20,10 @@
           <td><%= contract_plan.price %></td>
           <td><%= contract_plan.contract_long %></td>
           <td><%= link_to 'Show', contract_plan, :class=>"btn-normal" %></td>
-          <td><%= link_to 'Edit', edit_contract_plan_path(contract_plan), :class=>"btn-normal" %></td>
-          <td><%= link_to 'Destroy', contract_plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn-normal" %></td>
+          <% if current_user.admin? %>
+            <td><%= link_to 'Edit', edit_contract_plan_path(contract_plan), :class=>"btn-normal" %></td>
+            <td><%= link_to 'Destroy', contract_plan, method: :delete, data: { confirm: 'Are you sure?' }, :class=>"btn-normal" %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
@@ -30,5 +32,5 @@
 
 <br>
 
-<%= link_to 'New Contract Plan', new_contract_plan_path, :class=>"btn-highlight"%>
+<%= link_to('New Contract Plan', new_contract_plan_path, class: "btn-highlight") if current_user.admin? %>
 
