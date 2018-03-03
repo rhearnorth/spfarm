@@ -1,8 +1,12 @@
 <!--<p id="notice"><%= notice %></p>-->
 <% if current_user.admin? %>
-  <%= link_to "Waiting for image slip orders", orders_path %>
-  <%= link_to "Waiting for approval_orders", orders_path(order_type: "waiting_approval")%>
-  <%= link_to "Approved orders", orders_path(order_type: "confirmed") %>
+  <div class="btn-group dashhead-toolbar-item btn-group-thirds">
+    <%= link_to "Waiting for image slip orders", orders_path(order_type: "bought_orders"), class: "btn btn-outline-primary #{ "active" if @order_type == "bought_orders" }" %>
+    <%= link_to "Waiting for approval_orders", orders_path(order_type: "waiting_approval"), class: "btn btn-outline-primary #{ "active" if @order_type == "waiting_approval" }" %>
+    <%= link_to "Approved orders", orders_path(order_type: "confirmed"), class: "btn btn-outline-primary #{ "active" if @order_type == "confirmed" }"  %>
+  </div>
+  <br>
+  <br>
 <% end %>
 
 <h1><%= @title %></h1>
@@ -39,4 +43,4 @@
 </div>
 <br>
 
-<%= link_to 'New Order', new_order_path, :class=>"btn-highlight" %>
+<%= link_to 'New Order', new_order_path, :class=>"btn-highlight" if current_user.admin? %>
